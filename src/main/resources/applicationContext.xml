@@ -7,8 +7,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     <bean id="musicBean"
-          class="org.imposya.springtest.ClassicalMusic">
+          class="org.imposya.springtest.JazzMusic">
     </bean>
-    <bean id="jazzBean"
-          class="org.imposya.springtest.JazzMusic"/>
+    <bean id="musicPlayer"
+    class="org.imposya.springtest.MusicPlayer">
+        <constructor-arg ref="musicBean"> </constructor-arg>
+    </bean>
 </beans>
