@@ -9,4 +9,6 @@
     <bean id="musicBean"
           class="org.imposya.springtest.ClassicalMusic">
     </bean>
+    <bean id="jazzBean"
+          class="org.imposya.springtest.JazzMusic"/>
 </beans>
