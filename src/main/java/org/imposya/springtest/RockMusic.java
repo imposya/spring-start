@@ -1,5 +1,8 @@
 package org.imposya.springtest;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class RockMusic implements Music{
     public void init() {
         System.out.println("init rock");
