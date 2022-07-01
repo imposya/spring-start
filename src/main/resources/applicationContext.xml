@@ -9,17 +9,27 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean1"
-          class="org.imposya.springtest.JazzMusic">
+          class="org.imposya.springtest.JazzMusic"
+    init-method="init"
+    destroy-method="destroy"
+    scope="prototype">
     </bean>
     <bean id="musicBean2"
-          class="org.imposya.springtest.ClassicalMusic">
+          class="org.imposya.springtest.ClassicalMusic"
+          factory-method="getClassicalMusic"
+          scope="prototype"
+          init-method="init"
+          destroy-method="destroy">
     </bean>
     <bean id="musicBean3"
-          class="org.imposya.springtest.RockMusic">
+          class="org.imposya.springtest.RockMusic"
+    init-method="init"
+    destroy-method="destroy">
     </bean>
 
     <bean id="musicPlayer"
-          class="org.imposya.springtest.MusicPlayer">
+          class="org.imposya.springtest.MusicPlayer"
+          scope="prototype">
         <property name="musicList" >
             <list>
                 <ref bean="musicBean1"/>
