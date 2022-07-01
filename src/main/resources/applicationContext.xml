@@ -6,11 +6,28 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="musicBean"
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="musicBean1"
           class="org.imposya.springtest.JazzMusic">
     </bean>
+    <bean id="musicBean2"
+          class="org.imposya.springtest.ClassicalMusic">
+    </bean>
+    <bean id="musicBean3"
+          class="org.imposya.springtest.RockMusic">
+    </bean>
+
     <bean id="musicPlayer"
-    class="org.imposya.springtest.MusicPlayer">
-        <constructor-arg ref="musicBean"> </constructor-arg>
+          class="org.imposya.springtest.MusicPlayer">
+        <property name="musicList" >
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 </beans>
