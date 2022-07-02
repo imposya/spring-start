@@ -1,6 +1,10 @@
 package org.imposya.springtest;
 
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ClassicalMusic implements Music {
     private ClassicalMusic() {}
@@ -17,7 +21,11 @@ public class ClassicalMusic implements Music {
         System.out.println("destroy classical");
     }
     @Override
-    public String getSong() {
-        return "Rhapsody";
+    public List<String> getSong() {
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("song1rock");
+        arrayList.add("song2rock");
+        arrayList.add("song3rock");
+        return arrayList;
     }
 }
