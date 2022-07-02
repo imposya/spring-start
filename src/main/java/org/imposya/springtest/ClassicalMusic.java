@@ -6,14 +6,11 @@ import javax.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 
 public class ClassicalMusic implements Music {
-    private ClassicalMusic() {}
+    ClassicalMusic() {}
 
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
+
     @PostConstruct
     public void init() {
         System.out.println("init classical");
